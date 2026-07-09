@@ -72,6 +72,7 @@
             margin-bottom: 20px;
             padding-bottom: 8px;
             border-bottom: 3px solid #2b6cb0;
+            margin-top: 20px;
         }
         .services-grid {
             display: grid;
@@ -115,6 +116,84 @@
             left: 0;
             font-weight: bold;
         }
+
+        /* Styles Formules d'Abonnement */
+        .plans-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        @media (min-width: 768px) {
+            .plans-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        .plan-card {
+            background: #ffffff;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        .plan-card.featured {
+            border-color: #2b6cb0;
+            box-shadow: 0 6px 12px rgba(43, 108, 176, 0.15);
+            background-color: #f7fafc;
+        }
+        .plan-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #2b6cb0;
+            color: #ffffff;
+            padding: 4px 15px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            border-radius: 20px;
+            text-transform: uppercase;
+        }
+        .plan-title {
+            font-size: 1.5rem;
+            color: #1a365d;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        .plan-price {
+            font-size: 2.2rem;
+            color: #2b6cb0;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .plan-tax-note {
+            font-size: 0.9rem;
+            color: #e53e3e;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .plan-features {
+            list-style-type: none;
+            text-align: left;
+            margin-bottom: 20px;
+            border-top: 1px solid #edf2f7;
+            padding-top: 15px;
+        }
+        .plan-features li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+        .plan-features li::before {
+            content: "✓";
+            color: #38a169;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
         .info-section {
             background-color: #edf2f7;
             padding: 25px;
@@ -187,6 +266,40 @@
         <section class="intro">
             <p><strong>Proxi'Sarre Services</strong> simplifie le quotidien des particuliers et des seniors autour de Sarreguemines. En tant qu'<strong>homme toutes mains</strong> et concierge privé, je prends en charge tous ces petits travaux et détails du quotidien que vous ne pouvez ou ne souhaitez plus faire vous-même.</p>
         </section>
+
+        <!-- NOUVELLE SECTION ABONNEMENTS -->
+        <h2>Nos Formules d'Abonnement Tranquillité</h2>
+        <p style="margin-bottom: 25px; font-size: 1.1rem; color: #4a5568;">Pour un esprit totalement serein tout au long de l'année, optez pour une formule mensuelle sans engagement. Idéal pour s'assurer un passage régulier et prévenir les petits tracas du quotidien.</p>
+        
+        <div class="plans-grid">
+            
+            <div class="plan-card">
+                <div class="plan-title">Formule Sérénité</div>
+                <div class="plan-price">40 € <span style="font-size: 1rem; color: #718096; font-weight: normal;">/ mois</span></div>
+                <div class="plan-tax-note">Soit seulement 20 € / mois après crédit d'impôt</div>
+                <ul class="plan-features">
+                    <li><strong>1 passage d'une heure</strong> par mois planifié à votre convenance</li>
+                    <li>Vérification visuelle générale de l'habitat à chaque visite</li>
+                    <li>Prise en charge de vos petits travaux accumulés (ampoules, piles, graissage...)</li>
+                    <li>Priorité d'intervention sous 48h en cas d'urgence</li>
+                </ul>
+            </div>
+
+            <div class="plan-card featured">
+                <div class="plan-badge">Le choix des familles</div>
+                <div class="plan-title">Formule Confort Plus</div>
+                <div class="plan-price">76 € <span style="font-size: 1rem; color: #718096; font-weight: normal;">/ mois</span></div>
+                <div class="plan-tax-note">Soit seulement 38 € / mois après crédit d'impôt</div>
+                <ul class="plan-features">
+                    <li><strong>2 passages d'une heure</strong> par mois (ou 1 passage de 2h)</li>
+                    <li>Idéal pour alterner l'entretien intérieur et les extérieurs (gouttières, terrasses)</li>
+                    <li>Montage de meubles et installations complexes inclus dans vos heures</li>
+                    <li>Aide régulière pour le transport de courses lourdes</li>
+                    <li>Priorité d'intervention sous 24h en cas d'urgence</li>
+                </ul>
+            </div>
+
+        </div>
 
         <h2>Mes Prestations "Homme Toutes Mains" &amp; Conciergerie</h2>
         <div class="services-grid">
