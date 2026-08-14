@@ -3,273 +3,467 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proxi'Sarre Services - Support Informatique, Administratif &amp; Bricolage à Sarreguemines</title>
+    <title>Proxi'Sarre Services — Support Informatique, Administratif &amp; Bricolage à Sarreguemines</title>
+    
+    <!-- Polices Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Icônes FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
         :root {
-            --primary: #1e3a8a;       /* Bleu marine pro */
-            --primary-light: #2563eb; /* Bleu vif pour accents */
-            --accent: #059669;        /* Vert pour crédit d'impôt */
-            --bg-body: #f8fafc;
-            --bg-card: #ffffff;
-            --text-dark: #1e293b;
+            --primary: #0f172a;       /* Slate 900 */
+            --brand: #2563eb;         /* Royal Blue Tech */
+            --brand-hover: #1d4ed8;
+            --accent: #059669;        /* Emerald Green Crédit Impôt */
+            --bg-light: #f8fafc;
+            --surface: #ffffff;
+            --text-main: #334155;
             --text-muted: #64748b;
+            --border: #e2e8f0;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
         
         body { 
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; 
+            font-family: 'Inter', sans-serif; 
             line-height: 1.6; 
-            color: var(--text-dark); 
-            background-color: var(--bg-body); 
+            color: var(--text-main); 
+            background-color: var(--bg-light);
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* En-tête */
-        header { 
-            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%); 
-            color: #ffffff; 
-            padding: 40px 20px; 
-            text-align: center; 
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
-        }
-        header h1 { font-size: 2.4rem; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 8px; }
-        header p { font-size: 1.25rem; font-weight: 300; opacity: 0.95; max-width: 600px; margin: 0 auto; }
+        h1, h2, h3, h4 { font-family: 'Plus Jakarta Sans', sans-serif; }
 
-        /* Bandeau Appel Direct */
-        .call-banner { 
-            background-color: #ffffff; 
-            border-bottom: 1px solid #e2e8f0; 
-            padding: 15px; 
-            text-align: center; 
-            font-size: 1.2rem; 
-            font-weight: 600;
+        /* Navigation Header */
+        nav {
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            padding: 14px 20px;
         }
-        .call-banner a { 
-            color: #ffffff; 
-            background-color: #dc2626; 
-            text-decoration: none; 
-            padding: 8px 20px; 
-            border-radius: 50px; 
-            display: inline-block; 
-            margin-left: 10px;
-            transition: background 0.2s;
-        }
-        .call-banner a:hover { background-color: #b91c1c; }
-
-        .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
-
-        /* Bloc Avantage Fiscal */
-        .tax-badge-banner {
-            background-color: #ecfdf5;
-            border: 2px dashed var(--accent);
-            border-radius: 12px;
-            padding: 20px;
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        .tax-badge-banner h3 { color: var(--accent); font-size: 1.3rem; margin-bottom: 5px; }
-        .tax-badge-banner p { color: #065f46; font-size: 1.05rem; margin: 0; }
-
-        h2 { 
-            color: var(--primary); 
-            font-size: 1.8rem; 
-            margin-bottom: 25px; 
-            text-align: center;
-            position: relative;
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
         
-        /* Grille des 3 Services */
-        .services-stack { display: flex; flex-direction: column; gap: 25px; margin-bottom: 50px; }
-        
-        .service-card { 
-            background: var(--bg-card); 
-            border-radius: 12px; 
-            padding: 30px; 
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
-            border: 1px solid #e2e8f0;
-            position: relative;
+        /* LOGO MONOGRAMME PSS (SVG DESIGN) */
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            text-decoration: none;
         }
-        .service-card.main-service {
-            border: 2px solid var(--primary-light);
-            background: #f0f9ff;
+        .brand-logo svg {
+            width: 46px;
+            height: 46px;
+            flex-shrink: 0;
+            filter: drop-shadow(0 2px 4px rgba(15, 23, 42, 0.15));
         }
-        .service-tag {
-            display: inline-block;
-            padding: 4px 12px;
-            font-size: 0.85rem;
+        .brand-text {
+            display: flex;
+            flex-direction: column;
+        }
+        .brand-name {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1.1;
+            letter-spacing: -0.5px;
+        }
+        .brand-name span { color: var(--brand); }
+        .brand-tagline {
+            font-size: 0.7rem;
+            color: var(--text-muted);
             font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 2px;
+        }
+
+        .nav-cta {
+            background-color: var(--brand);
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .nav-cta:hover { background-color: var(--brand-hover); transform: translateY(-1px); }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, #1e293b 100%);
+            color: #fff;
+            padding: 80px 20px 60px;
+            text-align: center;
+            position: relative;
+        }
+        .hero-content { max-width: 800px; margin: 0 auto; }
+        .hero-badge {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #38bdf8;
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            color: #94a3b8;
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+
+        /* Banner Avantage Fiscal */
+        .tax-banner {
+            max-width: 1100px;
+            margin: -30px auto 40px;
+            position: relative;
+            z-index: 10;
+            padding: 0 20px;
+        }
+        .tax-card {
+            background: var(--surface);
+            border-left: 5px solid var(--accent);
+            border-radius: 12px;
+            padding: 20px 30px;
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .tax-info { display: flex; align-items: center; gap: 15px; }
+        .tax-info i { font-size: 2rem; color: var(--accent); }
+        .tax-text h3 { color: var(--primary); font-size: 1.1rem; }
+        .tax-text p { color: var(--text-muted); font-size: 0.95rem; }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+
+        .section-header { text-align: center; margin-bottom: 50px; }
+        .section-header h2 { font-size: 2rem; color: var(--primary); margin-bottom: 10px; }
+        .section-header p { color: var(--text-muted); font-size: 1.1rem; }
+
+        /* Grille des Services */
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            margin-bottom: 70px;
+        }
+        @media(min-width: 768px) {
+            .services-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: #cbd5e1;
+        }
+        .card.featured {
+            border: 2px solid var(--brand);
+            position: relative;
+        }
+        .featured-tag {
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background: var(--brand);
+            color: #fff;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 4px 12px;
             border-radius: 20px;
             text-transform: uppercase;
-            margin-bottom: 15px;
         }
-        .tag-main { background-color: #dbeafe; color: var(--primary); }
-        .tag-sec { background-color: #f1f5f9; color: var(--text-muted); }
+        .card-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+        .icon-blue { background: #eff6ff; color: var(--brand); }
+        .icon-slate { background: #f1f5f9; color: var(--primary); }
+        .icon-amber { background: #fffbeb; color: #d97706; }
 
-        .service-card h3 { font-size: 1.5rem; color: var(--primary); margin-bottom: 12px; }
-        .service-card p { color: var(--text-muted); margin-bottom: 15px; font-size: 1.05rem; }
-        .service-card ul { list-style: none; display: grid; grid-template-columns: 1fr; gap: 10px; }
-        @media(min-width: 640px) { .service-card ul { grid-template-columns: 1fr 1fr; } }
+        .card h3 { font-size: 1.3rem; color: var(--primary); margin-bottom: 12px; }
+        .card p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 20px; flex-grow: 1; }
         
-        .service-card li { padding-left: 24px; position: relative; }
-        .service-card li::before { 
-            content: "✓"; 
-            color: var(--primary-light); 
-            font-weight: bold; 
-            position: absolute; 
-            left: 0; 
+        .card-list { list-style: none; }
+        .card-list li {
+            font-size: 0.9rem;
+            color: var(--text-main);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
         }
+        .card-list li i { color: var(--brand); margin-top: 4px; font-size: 0.8rem; }
 
-        /* Section Tarifs / Forfaits */
-        .pricing-grid { display: grid; grid-template-columns: 1fr; gap: 25px; margin-bottom: 50px; }
+        /* Section Tarifs */
+        .pricing-section {
+            background: var(--surface);
+            border-radius: 24px;
+            padding: 50px 30px;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 70px;
+        }
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            margin-top: 30px;
+        }
         @media(min-width: 768px) { .pricing-grid { grid-template-columns: 1fr 1fr; } }
-        
+
         .price-card {
-            background: var(--bg-card);
-            border: 1px solid #e2e8f0;
-            border-radius: 12px;
-            padding: 30px;
+            background: var(--bg-light);
+            border-radius: 16px;
+            padding: 35px;
+            border: 1px solid var(--border);
             text-align: center;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
         }
-        .price-card.featured { border: 2px solid var(--accent); background: #faf5ff; }
-        .price-title { font-size: 1.4rem; color: var(--primary); font-weight: bold; }
-        .price-amount { font-size: 2.5rem; color: var(--text-dark); font-weight: 800; margin: 15px 0 5px 0; }
-        .price-sub { color: var(--accent); font-weight: 600; font-size: 0.95rem; margin-bottom: 20px; }
+        .price-card.highlight {
+            background: #f0f9ff;
+            border-color: #bae6fd;
+        }
+        .price-val { font-size: 2.8rem; font-weight: 800; color: var(--primary); margin: 15px 0 5px; }
+        .price-tax { color: var(--accent); font-weight: 600; font-size: 0.95rem; margin-bottom: 25px; }
         
-        .price-features { list-style: none; text-align: left; margin-bottom: 25px; }
-        .price-features li { padding: 8px 0; border-bottom: 1px solid #f1f5f9; color: #475569; }
-
-        /* Bloc Contact */
-        .contact-box {
-            background: var(--primary);
-            color: #ffffff;
-            border-radius: 12px;
-            padding: 40px 20px;
+        /* Section Contact CTA */
+        .cta-section {
+            background: linear-gradient(135deg, var(--brand) 0%, #1d4ed8 100%);
+            color: #fff;
+            border-radius: 24px;
+            padding: 60px 30px;
             text-align: center;
+            box-shadow: var(--shadow-lg);
         }
-        .contact-box h2 { color: #ffffff; margin-bottom: 15px; }
-        .phone-link {
-            font-size: 2.2rem;
-            color: #ffffff;
+        .cta-section h2 { font-size: 2.2rem; margin-bottom: 15px; }
+        .cta-section p { font-size: 1.1rem; opacity: 0.9; margin-bottom: 30px; }
+        .phone-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: #ffffff;
+            color: var(--brand);
+            font-size: 1.5rem;
+            font-weight: 800;
+            padding: 16px 36px;
+            border-radius: 50px;
             text-decoration: none;
-            font-weight: bold;
-            display: block;
-            margin: 20px 0;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.2);
+            transition: transform 0.2s;
         }
+        .phone-button:hover { transform: scale(1.03); }
 
-        footer { text-align: center; padding: 30px 20px; color: var(--text-muted); font-size: 0.9rem; }
+        footer { text-align: center; padding: 40px 20px; color: var(--text-muted); font-size: 0.9rem; }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Proxi'Sarre Services</h1>
-        <p>Support Informatique, Assistance Administrative &amp; Services à Domicile à Sarreguemines</p>
-    </header>
+    <!-- Barre de Nav avec Monogramme PSS Tech -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="brand-logo">
+                <!-- SVG Monogramme PSS (Concept 3) -->
+                <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Fond Carré Arrondi Premium -->
+                    <rect width="100" height="100" rx="24" fill="#0F172A"/>
+                    
+                    <!-- Lignes P & S Entrelacées (Circuit & Monogramme) -->
+                    <path d="M 32 80 V 24 H 56 C 66 24 72 30 72 38 C 72 46 66 52 56 52 H 32" stroke="#2563EB" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M 68 46 C 68 46 58 44 50 44 C 40 44 36 48 36 54 C 36 62 66 60 66 70 C 66 78 56 80 44 80 C 36 80 28 76 28 76" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round"/>
+                    
+                    <!-- Point de Connexion Vert Émeraude (Status Actif) -->
+                    <circle cx="76" cy="76" r="8" fill="#059669"/>
+                    <circle cx="76" cy="76" r="4" fill="#34D399"/>
+                </svg>
+                
+                <div class="brand-text">
+                    <div class="brand-name">Proxi'Sarre <span>Services</span></div>
+                    <div class="brand-tagline">Support Informatique &amp; Services</div>
+                </div>
+            </a>
+            <a href="tel:0600000000" class="nav-cta">
+                <i class="fa-solid fa-phone"></i> 06 00 00 00 00
+            </a>
+        </div>
+    </nav>
 
-    <div class="call-banner">
-        Une question ou un besoin d'assistance ? 
-        <a href="tel:0600000000">📞 06 00 00 00 00</a>
+    <!-- En-tête Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fa-solid fa-location-dot"></i> Sarreguemines &amp; 20 km alentours
+            </div>
+            <h1>Le spécialiste de l'assistance informatique &amp; des services à domicile</h1>
+            <p>Un accompagnement professionnel, humain et sur-mesure pour les seniors et les particuliers. Dépannage informatique, aides administratives et petits travaux.</p>
+        </div>
+    </section>
+
+    <!-- Avantage Fiscal Badge -->
+    <div class="tax-banner">
+        <div class="tax-card">
+            <div class="tax-info">
+                <i class="fa-solid fa-piggy-bank"></i>
+                <div class="tax-text">
+                    <h3>50% de Crédit d'Impôt Immédiat</h3>
+                    <p>En tant qu'intervenant "Services à la Personne", vous ne réglez que la moitié de la somme due.</p>
+                </div>
+            </div>
+        </div>
     </div>
 
+    <!-- Contenu Principal -->
     <div class="container">
 
-        <!-- Bandeau Crédit d'Impôt -->
-        <div class="tax-badge-banner">
-            <h3>💳 Bénéficiez de 50% de Crédit d'Impôt Immédiat</h3>
-            <p>Grâce à notre statut "Services à la Personne" (SAP), vous ne payez immédiatement que la moitié de la facture !</p>
+        <div class="section-header">
+            <h2>Une gamme complète de services</h2>
+            <p>Une expertise technique combinée au sens du service pour vous simplifier la vie.</p>
         </div>
 
-        <h2>Nos Services à Domicile</h2>
-        
-        <div class="services-stack">
+        <div class="services-grid">
             
-            <!-- 1. ACTIVITÉ PRINCIPALE : INFORMATIQUE -->
-            <div class="service-card main-service">
-                <span class="service-tag tag-main">Spécialité Principale</span>
-                <h3>1. Support &amp; Assistance Informatique</h3>
-                <p>Un accompagnement patient et clair pour tous vos équipements numériques, adapté aux seniors et aux particuliers.</p>
-                <ul>
-                    <li>Installation et configuration (PC, Tablette, Smartphone)</li>
-                    <li>Mise en route de votre Box Internet &amp; réglage Wi-Fi</li>
-                    <li>Résolution de bugs, nettoyage de virus et mises à jour</li>
-                    <li>Installation d'imprimantes et logiciels</li>
-                    <li>Configuration des outils vidéo pour échanger avec vos proches (WhatsApp, FaceTime)</li>
-                    <li>Sécurisation de vos données et mots de passe</li>
+            <!-- Carte 1 : Informatique (Vedette) -->
+            <div class="card featured">
+                <span class="featured-tag">Activité Phare</span>
+                <div class="card-icon icon-blue">
+                    <i class="fa-solid fa-display"></i>
+                </div>
+                <h3>1. Support Informatique</h3>
+                <p>Installation, dépannage et sécurisation de vos équipements numériques avec pédagogie.</p>
+                <ul class="card-list">
+                    <li><i class="fa-solid fa-check"></i> Ordinateurs (Windows/Mac), Tablettes, Smartphones</li>
+                    <li><i class="fa-solid fa-check"></i> Configuration Box Internet, Wi-Fi &amp; Imprimantes</li>
+                    <li><i class="fa-solid fa-check"></i> Suppression de virus et lenteurs système</li>
+                    <li><i class="fa-solid fa-check"></i> Configuration d'outils vidéo (WhatsApp, FaceTime)</li>
                 </ul>
             </div>
 
-            <!-- 2. AIDE ADMINISTRATIVE -->
-            <div class="service-card">
-                <span class="service-tag tag-sec">Service Secondaire</span>
-                <h3>2. Aide Administrative &amp; Organisation</h3>
-                <p>Ne vous laissez plus dépasser par la paperasse et les démarches sur Internet.</p>
-                <ul>
-                    <li>Aide à la gestion et au tri du courrier quotidien</li>
-                    <li>Accompagnement pour vos démarches en ligne (Impôts, Assurance Maladie, Retraite)</li>
-                    <li>Classement méthodique de vos documents importants</li>
-                    <li>Rédaction et envoi de courriers administratifs</li>
+            <!-- Carte 2 : Administratif -->
+            <div class="card">
+                <div class="card-icon icon-slate">
+                    <i class="fa-solid fa-file-signature"></i>
+                </div>
+                <h3>2. Aide Administrative</h3>
+                <p>Un soutien rigoureux pour classer vos papiers et effectuer vos démarches sur Internet.</p>
+                <ul class="card-list">
+                    <li><i class="fa-solid fa-check"></i> Tri et classement du courrier quotidien</li>
+                    <li><i class="fa-solid fa-check"></i> Démarches en ligne (Impôts, Assurance, Retraite)</li>
+                    <li><i class="fa-solid fa-check"></i> Rédaction et gestion de courriers divers</li>
+                    <li><i class="fa-solid fa-check"></i> Organisation des dossiers administratifs</li>
                 </ul>
             </div>
 
-            <!-- 3. HOMME TOUTES MAINS -->
-            <div class="service-card">
-                <span class="service-tag tag-sec">Service Complémentaire</span>
-                <h3>3. Petit Bricolage &amp; Homme Toutes Mains</h3>
-                <p>Pour les petits dépannages et ajustements du quotidien au sein de votre logement.</p>
-                <ul>
-                    <li>Changement d'ampoules, prises ou luminaires simples</li>
-                    <li>Montage et installation de petits meubles en kit</li>
-                    <li>Fixation de cadres, étagères, rideaux ou barres d'appui</li>
-                    <li>Petites réparations courantes (charnières, serrures, joints)</li>
-                </ul>
-            </div>
-
-        </div>
-
-        <h2>Nos Formules de Passage Récurrent</h2>
-        
-        <div class="pricing-grid">
-            
-            <div class="price-card">
-                <div class="price-title">Formule Sérénité</div>
-                <div class="price-amount">40 € <span style="font-size: 1rem; font-weight: normal;">/ mois</span></div>
-                <div class="price-sub">Soit 20 € / mois après crédit d'impôt</div>
-                <ul class="price-features">
-                    <li>✓ <strong>1 passage d'une heure</strong> par mois</li>
-                    <li>✓ Vérification informatique &amp; mises à jour</li>
-                    <li>✓ Traitement d'une démarche administrative</li>
-                    <li>✓ Sans engagement de durée</li>
-                </ul>
-            </div>
-
-            <div class="price-card featured">
-                <div class="price-title">Formule Confort Plus</div>
-                <div class="price-amount">76 € <span style="font-size: 1rem; font-weight: normal;">/ mois</span></div>
-                <div class="price-sub">Soit 38 € / mois après crédit d'impôt</div>
-                <ul class="price-features">
-                    <li>✓ <strong>2 passages d'une heure</strong> par mois (ou 1x 2h)</li>
-                    <li>✓ Suivi informatique complet &amp; dépannages</li>
-                    <li>✓ Gestion complète du courrier / démarches</li>
-                    <li>✓ Petit bricolage inclus lors des visites</li>
+            <!-- Carte 3 : Bricolage -->
+            <div class="card">
+                <div class="card-icon icon-amber">
+                    <i class="fa-solid fa-screwdriver-wrench"></i>
+                </div>
+                <h3>3. Petit Bricolage</h3>
+                <p>Vos petits travaux d'entretien intérieur réalisés proprement et en toute sécurité.</p>
+                <ul class="card-list">
+                    <li><i class="fa-solid fa-check"></i> Remplacement d'ampoules, prises ou luminaires</li>
+                    <li><i class="fa-solid fa-check"></i> Montage de meubles en kit et étagères</li>
+                    <li><i class="fa-solid fa-check"></i> Fixation de rideaux, cadres et barres d'appui</li>
+                    <li><i class="fa-solid fa-check"></i> Ajustements légers de portes et charnières</li>
                 </ul>
             </div>
 
         </div>
 
-        <!-- Bloc Contact -->
-        <div class="contact-box">
-            <h2>Prêt à vous simplifier la vie ?</h2>
-            <p>Intervention rapide sur Sarreguemines et ses environs (20 km).</p>
-            <a href="tel:0600000000" class="phone-link">06 00 00 00 00</a>
-            <p>Par email : <strong>contact@proxisarre.fr</strong></p>
+        <!-- Section Tarifs -->
+        <div class="pricing-section">
+            <div class="section-header" style="margin-bottom: 30px;">
+                <h2>Formules "Abonnement Tranquillité"</h2>
+                <p>Assurez-vous un passage régulier et sans engagement pour tous vos tracas du quotidien.</p>
+            </div>
+
+            <div class="pricing-grid">
+                
+                <div class="price-card">
+                    <h3>Formule Sérénité</h3>
+                    <div class="price-val">40 € <span style="font-size: 1rem; color: var(--text-muted); font-weight: 400;">/ mois</span></div>
+                    <div class="price-tax"><i class="fa-solid fa-shield-halved"></i> Soit 20 € / mois après crédit d'impôt</div>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">Idéal pour le contrôle mensuel et la maintenance de vos appareils.</p>
+                    <hr style="border: 0; border-top: 1px solid var(--border); margin: 20px 0;">
+                    <p style="font-size: 0.95rem; font-weight: 600;">1 passage d'une heure par mois inclus</p>
+                </div>
+
+                <div class="price-card highlight">
+                    <h3>Formule Confort Plus</h3>
+                    <div class="price-val">76 € <span style="font-size: 1rem; color: var(--text-muted); font-weight: 400;">/ mois</span></div>
+                    <div class="price-tax"><i class="fa-solid fa-shield-halved"></i> Soit 38 € / mois après crédit d'impôt</div>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">Un suivi complet informatique, administratif et entretien inclus.</p>
+                    <hr style="border: 0; border-top: 1px solid #bae6fd; margin: 20px 0;">
+                    <p style="font-size: 0.95rem; font-weight: 600;">2 passages d'une heure (ou 1x 2h) par mois</p>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Section Contact finale (CTA) -->
+        <div class="cta-section">
+            <h2>Prêt à fixer un rendez-vous ?</h2>
+            <p>Disponible du Lundi au Samedi pour intervenir directement à votre domicile.</p>
+            <a href="tel:0600000000" class="phone-button">
+                <i class="fa-solid fa-phone"></i> 06 00 00 00 00
+            </a>
+            <p style="font-size: 0.9rem; margin-top: 20px; opacity: 0.8;">Ou par email à contact@proxisarre.fr</p>
         </div>
 
     </div>
 
     <footer>
-        <p>&copy; 2026 Proxi'Sarre Services - Sarreguemines. Tous droits réservés.</p>
-        <p style="margin-top: 5px;">Entreprise individuelle | Déclaration SAP en cours</p>
+        <p>&copy; 2026 Proxi'Sarre Services. Tous droits réservés.</p>
+        <p style="font-size: 0.8rem; margin-top: 5px;">Entreprise Individuelle à Sarreguemines — Inscription SAP en cours</p>
     </footer>
 
 </body>
